@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <report id="bookmark_bookmark_report"
+            model="bookmark.bookmark" name="bookmark.bookmark"
+            rml="bookmark/report/bookmarks.rml" string="Bookmarks"/>
+
+    </data>
+</openerp>

@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+<openerp>
+   <data>
+
+        <!-- Tag Entity -->
+
+        <record model="ir.ui.view" id="bookmark_tag_tree">
+            <field name="name">bookmark.tag.tree</field>
+            <field name="model">bookmark.tag</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Tag">
+                    <field name="name"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="bookmark_tag_form">
+            <field name="name">bookmark.tag.form</field>
+            <field name="model">bookmark.tag</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Tag">
+                    <field name="name" select="1" colspan="2"/>
+                    <field name="state" />
+                    <group col="4" colspan="4">
+                    	<separator string="Bookmarks" colspan="4"/>
+                        <field name="bookmark_ids" nolabel="1" colspan="4" mode="tree,form">
+                            <tree string="Bookmarks">
+                                <field name="name"/>
+                                <field name="description"/>
+                                <field name="url" widget="url"/>
+                            </tree>
+                            <form string="Bookmarks">
+                                <field name="name"/>
+                                <field name="description"/>
+                                <field name="url" widget="url"/>
+                            </form>
+                        </field>
+                    </group>
+                    <separator string="Actions" colspan="4"/>
+                    <group colspan="4" col="4">
+                        <button name="tag_approved" string="Approved" states="new" colspan="1"/>
+                        <button name="tag_disapproved" string="Disapproved" states="new" colspan="1"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_bookmark_tag_form">
+            <field name="name">Tags</field>
+            <field name="res_model">bookmark.tag</field>
+        </record>
+
+        <!-- Bookmark Entity -->
+
+        <record model="ir.ui.view" id="bookmark_bookmark_tree">
+            <field name="name">bookmark.bookmark.tree</field>
+            <field name="model">bookmark.bookmark</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Bookmark">
+                    <field name="name" select="1"/>
+                    <field name="description"/>
+                    <field name="url" select="1"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="bookmark_bookmark_form">
+            <field name="name">bookmark.bookmark.form</field>
+            <field name="model">bookmark.bookmark</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Bookmark">
+            		<group col="4" colspan="4">
+	                    <field name="name" colspan="2"/>
+	                    <field name="description" colspan="2"/>
+	                    <field name="url" widget="url" colspan="2"/>
+                    </group>
+                    <group col="4" colspan="4">
+                    	<separator string="Tags" colspan="4"/>
+                        <field name="tag_ids" nolabel="1" colspan="4" mode="tree,form">
+                            <tree string="Tags">
+                                <field name="name"/>
+                            </tree>
+                            <form string="Tags">
+                                <field name="name"/>
+                            </form>
+                        </field>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_bookmark_bookmark_form">
+            <field name="name">Bookmarks</field>
+            <field name="res_model">bookmark.bookmark</field>
+        </record>
+
+        <!-- Menu -->
+
+        <menuitem id="bookmark.menu_principal" name="Bookmarks" parent="base.menu_tools"/>
+        <menuitem id="bookmark.bookmark_menu" name="Bookmarks" parent="bookmark.menu_principal" action="action_bookmark_bookmark_form"/>
+        <menuitem id="bookmark.tag_menu" name="Tags" parent="bookmark.menu_principal" action="action_bookmark_tag_form"/>
+
+    </data>
+</openerp>

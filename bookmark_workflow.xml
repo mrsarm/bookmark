@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+
+        <!--  Tag Workflow  -->
+    
+        <record model="workflow" id="wkf_tag">
+            <field name="name">tag.wkf</field>
+            <field name="osv">bookmark.tag</field>
+            <field name="on_create">True</field>
+        </record>
+    
+        <record model="workflow.activity" id="act_tag_new">
+            <field name="wkf_id" ref="wkf_tag" />
+            <field name="flow_start">True</field>
+            <field name="name">new</field>
+            <field name="kind">function</field>
+            <field name="action">tag_new()</field>
+        </record>
+    
+        <record model="workflow.activity" id="act_tag_approved">
+            <field name="wkf_id" ref="wkf_tag" />
+            <field name="flow_stop">True</field>
+            <field name="name">approved</field>
+            <field name="kind">function</field>
+            <field name="action">tag_approved()</field>
+            <!--field name="role_id" ref="2"/> Administration / Access Rights -->
+        </record>
+    
+        <record model="workflow.activity" id="act_tag_disapproved">
+            <field name="wkf_id" ref="wkf_tag" />
+            <field name="flow_stop">True</field>
+            <field name="name">disapproved</field>
+            <field name="kind">function</field>
+            <field name="action">tag_disapproved()</field>
+            <!--field name="role_id" ref="2"/> Administration / Access Rights -->
+        </record>
+    
+        <record model="workflow.transition" id="tag_t1">
+            <field name="act_from" ref="act_tag_new" />
+            <field name="act_to" ref="act_tag_approved" />
+            <field name="signal">tag_approved</field>
+        </record>
+    
+        <record model="workflow.transition" id="tag_t2">
+            <field name="act_from" ref="act_tag_new" />
+            <field name="act_to" ref="act_tag_disapproved" />
+            <field name="signal">tag_disapproved</field>
+        </record>
+
+    </data>
+</openerp>

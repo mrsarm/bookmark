@@ -1,0 +1,5 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"access_bookmark_bookmark_group_users","bookmark.bookmark read","model_bookmark_bookmark","bookmark.group_bookmark_user",1,1,1,1
+"access_bookmark_bookmark_group_manager","bookmark.bookmark all","model_bookmark_bookmark","bookmark.group_bookmark_manager",1,1,1,1
+"access_bookmark_tag_group_users","bookmark.tag read","model_bookmark_tag","bookmark.group_bookmark_user",1,1,1,1
+"access_bookmark_tag_group_manager","bookmark.tag all","model_bookmark_tag","bookmark.group_bookmark_manager",1,1,1,1
