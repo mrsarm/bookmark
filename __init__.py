@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 '''
-@author: Mariano Ruiz
+@author: Mariano Ruiz<mrsarm@gmail.com> (2012)
 '''
 
 

@@ -9,9 +9,9 @@
                     "base_tools"
                 ],
     'description': """Bookmarks your favorites URLs""",
-    "author" : "Mariano Ruiz",
+    "author" : "Mariano Ruiz <mrsarm@gmail.com>",
     "category": "Tools",
-    #'website': 'http://www.openerp.com',
+    'website': 'http://www.mrdev.com.ar',
     #"init_xml" : [],
     #"demo_xml" : [],
     "update_xml" : [
